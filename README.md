@@ -45,7 +45,7 @@ flutter doctor --android-licenses   # aceptar con y
 1. Arrancar:
 
 ```bash
-pip install django djangorestframework django-cors-headers python-dotenv
+pip install django djangorestframework django-cors-headers python-dotenv mysqlclient
 python manage.py migrate
 python manage.py createsuperuser    
 python manage.py runserver          
@@ -131,8 +131,8 @@ gamearena_app/
 | --- | --- | --- | --- |
 | `/api/videojuegos/` | GET | array de videojuegos (activos, orden por nombre) | pública, filtro `plataforma` |
 | `/api/jugadores/` | GET | paginada: `resultados[]`, `total_paginas` | pública, filtros `pais/buscar/page` |
-| `/api/jugadores/` | POST | 201 objeto creado / 403 sin admin | **admin** |
-| `/api/token/` | POST | token de autenticación | credenciales admin |
+| `/api/jugadores/` | POST | 201 objeto creado / 403 sin admin | **root** |
+| `/api/token/` | POST | token de autenticación | credenciales root |
 
 ---
 
@@ -160,5 +160,3 @@ Casos de demo:
 - Paginación de `/api/jugadores/` y `/api/torneos/` no consumida aún (usa solo page 1).
 - Sin persistencia local (todo viene de la red).
 - iOS requiere macOS + Xcode; Windows desktop requiere VS con workload C++ (no usados).
-
-/docs.flutter.dev/data-and-backend/networking
